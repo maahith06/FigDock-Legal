@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FigDock — Business Finance &amp; Operational Tracking | Legal &amp; Privacy Portal</title>
+  <meta name="description" content="Official Legal, Privacy Policy, and Account Deletion portal for FigDock (app.figdock.financial). Static hosting via GitHub Pages.">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-hover: #273549;
+      --primary: #38BDF8;
+      --primary-hover: #0EA5E9;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --border: #334155;
+      --success: #10B981;
+      --warning: #F59E0B;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 48px 20px;
+      width: 100%;
+      flex: 1;
+    }
+    header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 32px;
+      margin-bottom: 40px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    .badge {
+      display: inline-block;
+      background: #0369A1;
+      color: #E0F2FE;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-secondary {
+      background: #334155;
+      color: #94A3B8;
+    }
+    h1 {
+      color: #FFFFFF;
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
+    }
+    .subtitle {
+      color: var(--muted);
+      font-size: 1.1rem;
+      margin: 0;
+      max-width: 640px;
+    }
+    h2 {
+      color: var(--primary);
+      font-size: 1.35rem;
+      margin: 36px 0 16px 0;
+      font-weight: 600;
+    }
+    h3 {
+      color: #FFFFFF;
+      font-size: 1.1rem;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    ul {
+      padding-left: 20px;
+      margin: 12px 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin: 28px 0;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.15s ease, border-color 0.15s ease;
+      text-decoration: none;
+    }
+    .card:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
+    .card h3 {
+      color: #FFFFFF;
+      margin-top: 0;
+      font-size: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .card p {
+      color: var(--muted);
+      font-size: 0.9rem;
+      margin: 12px 0 20px 0;
+      flex-1: 1;
+    }
+    .card-link {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+    }
+    .info-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--primary);
+      border-radius: 8px;
+      padding: 20px;
+      margin: 28px 0;
+    }
+    .info-box strong {
+      color: #FFFFFF;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38BDF8;
+      font-size: 0.85em;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding-top: 28px;
+      margin-top: 48px;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-align: center;
+    }
+    footer a {
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/figdock-legal/" class="nav-brand">FigDock</a>
+      <div class="nav-links">
+        <a href="/figdock-legal/">Home</a>
+        <a href="/figdock-legal/privacy/">Privacy Policy</a>
+        <a href="/figdock-legal/account-deletion/">Account Deletion</a>
+      </div>
+    </nav>
+
+    <header>
+      <div class="badge-row">
+        <span class="badge">Legal &amp; Privacy Gateway</span>
+        <span class="badge badge-secondary">Application ID: app.figdock.financial</span>
+        <span class="badge badge-secondary">Android First</span>
+      </div>
+      <h1>FigDock Legal Documentation</h1>
+      <p class="subtitle">
+        Official statutory disclosures, privacy governance policies, and external account deletion resources for the FigDock financial platform.
+      </p>
+    </header>
+
+    <main>
+      <section>
+        <h2>Regulatory Documents &amp; User Rights</h2>
+        <p>
+          FigDock is an Android-first operational financial tracking, custom forms, and approval workflow application designed for small and medium-sized enterprises (SMEs). In compliance with Google Play Developer Policies and UK GDPR, this public portal hosts our official legal documentation:
+        </p>
+
+        <div class="grid">
+          <a href="/figdock-legal/privacy/" class="card">
+            <div>
+              <h3>Privacy Policy <span>&rarr;</span></h3>
+              <p>
+                Comprehensive disclosure of personal data collection, data minimization, lawful processing bases (UK GDPR Art. 6), statutory financial accounting retention schedules, and data protection rights.
+              </p>
+            </div>
+            <span class="card-link">Read Privacy Policy &rarr;</span>
+          </a>
+
+          <a href="/figdock-legal/account-deletion/" class="card">
+            <div>
+              <h3>Account &amp; Data Deletion <span>&rarr;</span></h3>
+              <p>
+                Clear instructions and a dedicated customer service email request pathway to delete your account and personal data without reinstalling or reopening the mobile application.
+              </p>
+            </div>
+            <span class="card-link">View Deletion Instructions &rarr;</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="info-box">
+        <h3 style="margin-top: 0;">Architectural Principles &amp; Privacy By Design</h3>
+        <ul>
+          <li><strong>Data Minimization:</strong> FigDock collects only what is essential for application functionality (user display name, email, authentication UID, and company operational records).</li>
+          <li><strong>Zero Tracking:</strong> FigDock does <strong>not</strong> track GPS location, read device contacts, access SMS messages, record microphone audio, or collect Google Advertising IDs (AAID).</li>
+          <li><strong>Cryptographic Device Security:</strong> Unsubmitted local offline drafts on your Android device are encrypted at rest using SQLCipher AES-256-GCM backed by hardware-protected keys in the Android Keystore.</li>
+          <li><strong>Encryption in Transit:</strong> TLS 1.3 is strictly enforced for all network communications. Cleartext HTTP is prohibited in the Android Network Security Configuration.</li>
+          <li><strong>Statutory Record Retention:</strong> Under Section 388 of the United Kingdom Companies Act 2006 and HMRC rules, company business accounting records belong legally to the employer organization and are preserved with author attribution permanently pseudonymized to <code>"Former Member"</code> upon account deletion.</li>
+        </ul>
+      </section>
+
+      <section>
+        <h2>Customer Service &amp; Support Contact</h2>
+        <p>
+          For general product support, data protection inquiries, or to submit an external account deletion request:
+        </p>
+        <p>
+          Customer Support Email: <strong>[Pending User Confirmation of Public Support Email]</strong> (e.g., <code>support@figdock.app</code>)<br>
+          Legal Data Controller: <strong>[Pending User Confirmation of Legal Entity / Developer Name]</strong>
+        </p>
+        <p>
+          You also have the right to lodge a complaint with the UK supervisory authority, the <strong>Information Commissioner's Office (ICO)</strong>, at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or by telephone at 0303 123 1113.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <a href="/figdock-legal/">Home</a> &bull;
+        <a href="/figdock-legal/privacy/">Privacy Policy</a> &bull;
+        <a href="/figdock-legal/account-deletion/">Account Deletion</a>
+      </div>
+      <p style="margin-top: 12px; margin-bottom: 0;">
+        &copy; 2026 FigDock. All rights reserved. Hosted statically via GitHub Pages.
+      </p>
+    </footer>
+  </div>
+</body>
+</html>

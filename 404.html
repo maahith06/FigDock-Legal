@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 — Page Not Found | FigDock Legal &amp; Privacy</title>
+  <meta name="robots" content="noindex, follow">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-hover: #273549;
+      --primary: #38BDF8;
+      --primary-hover: #0EA5E9;
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --border: #334155;
+      --warning: #F59E0B;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 64px 20px;
+      width: 100%;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .error-code {
+      font-size: 5rem;
+      font-weight: 800;
+      line-height: 1;
+      margin: 0 0 16px 0;
+      background: linear-gradient(135deg, #38BDF8 0%, #818CF8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.04em;
+    }
+    h1 {
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0 0 12px 0;
+      letter-spacing: -0.02em;
+    }
+    p {
+      color: var(--muted);
+      font-size: 1.05rem;
+      margin: 0 0 32px 0;
+      max-width: 500px;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      width: 100%;
+      margin-bottom: 32px;
+      text-align: left;
+    }
+    .card h2 {
+      font-size: 1.1rem;
+      color: #FFFFFF;
+      margin: 0 0 16px 0;
+    }
+    .nav-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .nav-list li a {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+    .nav-list li a:hover {
+      background: var(--surface-hover);
+      border-color: var(--primary);
+      color: var(--primary);
+    }
+    .nav-list li a span.arrow {
+      color: var(--muted);
+      font-weight: 700;
+    }
+    .btn-primary {
+      display: inline-block;
+      background: var(--primary);
+      color: #0F172A;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.2s ease;
+    }
+    .btn-primary:hover {
+      background: var(--primary-hover);
+    }
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 20px;
+      text-align: center;
+      font-size: 0.85rem;
+      color: var(--muted);
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="error-code">404</div>
+    <h1>Document Not Found</h1>
+    <p>The legal or privacy resource you requested could not be located. Please use the official directory below to navigate to the correct document.</p>
+
+    <div class="card">
+      <h2>FigDock Official Legal Resources</h2>
+      <ul class="nav-list">
+        <li>
+          <a href="/figdock-legal/">
+            <span>Legal Portal Home</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="/figdock-legal/privacy/">
+            <span>Privacy Policy (app.figdock.financial)</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+        </li>
+        <li>
+          <a href="/figdock-legal/account-deletion/">
+            <span>Account &amp; Data Deletion Instructions</span>
+            <span class="arrow">&rarr;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <a href="/figdock-legal/" class="btn-primary">Return to Portal Home</a>
+  </div>
+
+  <footer>
+    &copy; 2026 FigDock (&lt;app.figdock.financial&gt;). All rights reserved. Zero-cost static legal documentation repository.
+  </footer>
+</body>
+</html>

@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FigDock — Request Account &amp; Data Deletion</title>
+  <meta name="description" content="Official external account and data deletion request portal for FigDock (app.figdock.financial), in compliance with Google Play Developer Policies and UK GDPR.">
+  <style>
+    :root {
+      --bg: #0F172A;
+      --surface: #1E293B;
+      --surface-border: #334155;
+      --primary: #38BDF8;
+      --primary-hover: #0EA5E9;
+      --danger: #EF4444;
+      --danger-hover: #DC2626;
+      --danger-bg: rgba(239, 68, 68, 0.1);
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --success: #10B981;
+      --warning: #F59E0B;
+    }
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 40px 20px 80px 20px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      margin-bottom: 32px;
+      border-bottom: 1px solid var(--surface-border);
+    }
+    .nav-brand {
+      font-weight: 700;
+      font-size: 1.25rem;
+      color: #FFFFFF;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 0.9rem;
+    }
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      padding: 32px;
+      box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.4);
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.85rem;
+      margin: 12px 0 8px 0;
+      color: #FFFFFF;
+      letter-spacing: -0.02em;
+    }
+    h2 {
+      font-size: 1.25rem;
+      color: var(--primary);
+      margin-top: 28px;
+      margin-bottom: 12px;
+    }
+    h3 {
+      font-size: 1.05rem;
+      color: #FFFFFF;
+      margin-top: 20px;
+      margin-bottom: 8px;
+    }
+    p, li {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+    ul, ol {
+      padding-left: 20px;
+      margin: 12px 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .badge {
+      display: inline-block;
+      background: #0369A1;
+      color: #E0F2FE;
+      padding: 4px 12px;
+      border-radius: 9999px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-secondary {
+      background: #334155;
+      color: #94A3B8;
+    }
+    .alert-danger {
+      background: var(--danger-bg);
+      border-left: 4px solid var(--danger);
+      padding: 14px 18px;
+      border-radius: 6px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #FECACA;
+    }
+    .info-box {
+      background: rgba(56, 189, 248, 0.08);
+      border: 1px solid rgba(56, 189, 248, 0.25);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #BAE6FD;
+    }
+    .info-box strong {
+      color: #FFFFFF;
+    }
+    .warning-box {
+      background: rgba(245, 158, 11, 0.08);
+      border: 1px solid rgba(245, 158, 11, 0.3);
+      padding: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+      font-size: 0.9rem;
+      color: #FDE68A;
+    }
+    .warning-box strong {
+      color: #FFFFFF;
+    }
+    .request-box {
+      background: #0F172A;
+      border: 1px solid var(--surface-border);
+      border-radius: 8px;
+      padding: 24px;
+      margin: 24px 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-align: center;
+      text-decoration: none;
+      transition: background-color 0.15s ease;
+      font-family: inherit;
+    }
+    .btn-primary {
+      background-color: var(--primary);
+      color: #0F172A;
+    }
+    .btn-primary:hover {
+      background-color: var(--primary-hover);
+    }
+    .btn-secondary {
+      background-color: #334155;
+      color: #F8FAFC;
+    }
+    .btn-secondary:hover {
+      background-color: #475569;
+    }
+    .template-box {
+      background: #020617;
+      border: 1px solid var(--surface-border);
+      border-radius: 6px;
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      color: #E2E8F0;
+      white-space: pre-wrap;
+      word-break: break-all;
+      margin: 12px 0;
+      user-select: all;
+    }
+    code {
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      background: rgba(15, 23, 42, 0.6);
+      border: 1px solid var(--surface-border);
+      padding: 2px 6px;
+      border-radius: 4px;
+      color: #38BDF8;
+      font-size: 0.85em;
+    }
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    footer {
+      text-align: center;
+      margin-top: 48px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer a {
+      margin: 0 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="/figdock-legal/" class="nav-brand">FigDock</a>
+      <div class="nav-links">
+        <a href="/figdock-legal/">Home</a>
+        <a href="/figdock-legal/privacy/">Privacy Policy</a>
+        <a href="/figdock-legal/account-deletion/">Account Deletion</a>
+      </div>
+    </nav>
+
+    <div class="card">
+      <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+        <span class="badge">Account Lifecycle</span>
+        <span class="badge badge-secondary">App ID: app.figdock.financial</span>
+        <span class="badge badge-secondary">Google Play Compliant</span>
+      </div>
+      <h1>Delete FigDock Account &amp; Personal Data</h1>
+      <p>
+        In compliance with Google Play Developer Policies and the UK General Data Protection Regulation (UK GDPR Article 17 "Right to Erasure"), you have the absolute right to request the permanent deletion of your FigDock account and personal identity at any time, <strong>without reinstalling or opening the mobile application</strong>.
+      </p>
+
+      <div class="alert-danger">
+        <strong>Irreversible Action:</strong> Account deletion permanently destroys your authentication credentials, login email, Firebase identity, user profile, and active sessions. Offline encrypted drafts on your physical device are removed on app uninstall or sign-out.
+      </div>
+
+      <h2>How to Request Account Deletion Without the App</h2>
+      <p>
+        If you have uninstalled the FigDock app or cannot access your Android device, you can submit an official account deletion request directly to our customer service desk:
+      </p>
+
+      <div class="request-box">
+        <h3 style="margin-top: 0;">Customer Service Deletion Channel</h3>
+        <p>
+          Customer Support Email: <strong>[Pending User Confirmation of Public Support Email]</strong> (e.g., <code>support@figdock.app</code>)
+        </p>
+
+        <p style="margin-bottom: 16px;">
+          Click the button below to launch a pre-formatted email draft in your default mail application:
+        </p>
+
+        <a id="mailto-btn" href="mailto:support@figdock.app?subject=FigDock%20Account%20Deletion%20Request&body=Hello%20FigDock%20Support%2C%0A%0AI%20am%20requesting%20the%20permanent%20deletion%20of%20my%20FigDock%20account%20and%20associated%20personal%20data.%0A%0ARegistered%20Account%20Email%3A%20[Enter%20your%20registered%20email%20here]%0ACompany%20Workspace%20Name%20(Optional)%3A%20%0AReason%20for%20Leaving%20(Optional)%3A%20%0A%0AI%20understand%20that%3A%0A1.%20FigDock%20will%20verify%20my%20ownership%20by%20sending%20a%20confirmation%20challenge%20to%20my%20registered%20email.%0A2.%20Statutory%20financial%20records%20submitted%20on%20behalf%20of%20employers%20are%20retained%20under%20UK%20Companies%20Act%202006%20with%20my%20name%20pseudonymized%20to%20'Former%20Member'.%0A3.%20Account%20deletion%20is%20not%20instantaneous%20and%20will%20be%20fulfilled%20within%20standard%20SLA%20timelines.%0A%0AThank%20you." class="btn btn-primary">
+          Launch Deletion Request Email &rarr;
+        </a>
+
+        <h3 style="margin-top: 28px;">Copy-Paste Template for Webmail Users</h3>
+        <p style="margin-bottom: 8px;">
+          If you use webmail (Gmail, Outlook.com, or Yahoo Mail), send an email to the support address above with the following format:
+        </p>
+        <div class="template-box" id="email-template">To: [Pending User Confirmation of Public Support Email]
+Subject: FigDock Account Deletion Request
+
+Hello FigDock Support,
+
+I am requesting the permanent deletion of my FigDock account and associated personal data.
+
+Registered Account Email: [Enter your registered email here]
+Company Workspace Name (Optional): [Enter workspace name if applicable]
+Reason for Leaving (Optional): [Optional feedback]
+
+I understand that:
+1. FigDock will verify my ownership by sending a confirmation challenge to my registered email.
+2. Statutory financial records submitted on behalf of employers are retained under UK Companies Act 2006 with my name pseudonymized to 'Former Member'.
+3. Account deletion is not instantaneous and will be fulfilled within standard SLA timelines.
+
+Thank you.</div>
+        <button type="button" class="btn btn-secondary" onclick="copyTemplate()" id="copy-btn" style="padding: 8px 16px; font-size: 0.9rem;">
+          Copy Email Template
+        </button>
+      </div>
+
+      <h2>Required Information &amp; Security Precautions</h2>
+      <ul>
+        <li><strong>Required Identifier:</strong> You must specify the <strong>registered email address</strong> used to create and sign in to your FigDock account.</li>
+        <li><strong>What NOT to Send:</strong> For your security, <strong>never send passwords, PINs, authentication tokens, financial account numbers, credit card details, or transaction receipts</strong> via email. FigDock staff will never ask for your password.</li>
+        <li><strong>Unauthenticated Requests:</strong> We do not accept unauthenticated form submissions that claim to delete accounts without proof of ownership. All email deletion requests are subject to challenge-response verification.</li>
+      </ul>
+
+      <h2>How Identity is Securely Verified</h2>
+      <p>
+        To protect user accounts from unauthorized termination by third parties:
+      </p>
+      <ol>
+        <li>If your deletion request originates directly from your registered FigDock account email, our privacy team sends a signed confirmation challenge back to that address.</li>
+        <li>If your request originates from an alternate email address, the confirmation challenge is dispatched <strong>exclusively to the registered account email address on file</strong>.</li>
+        <li>Deletion is scheduled only after confirmation is received from the registered mailbox. Challenges expire after 14 calendar days if unconfirmed.</li>
+      </ol>
+
+      <h2>Processing Timeline (Not Instantaneous)</h2>
+      <p>
+        Account deletion is an irreversible security and legal procedure and is not instantaneous:
+      </p>
+      <ul>
+        <li><strong>Intake &amp; Acknowledgement:</strong> Within <strong>48 business hours</strong> of receiving your request.</li>
+        <li><strong>Identity Verification Challenge:</strong> Dispatched within <strong>3 business days</strong>.</li>
+        <li><strong>Fulfillment &amp; Erasure:</strong> Completed within <strong>72 hours</strong> of receiving your confirmed verification.</li>
+        <li><strong>Statutory Deadline:</strong> All requests are fulfilled well within the statutory ceiling of <strong>one calendar month (30 days)</strong> under UK GDPR Article 12(3).</li>
+      </ul>
+
+      <div class="warning-box">
+        <strong>Sole Administrator Safeguard:</strong><br>
+        If your account is the sole active administrator of an active company workspace with active team members, organizational governance rules prevent the workspace from being orphaned. You will be requested to appoint another administrator in the FigDock app or confirm closure of the workspace before personal account erasure can execute.
+      </div>
+
+      <h2>What Data is Deleted vs. Retained</h2>
+      <h3>1. Personal Data Permanently Erased:</h3>
+      <ul>
+        <li>Firebase Authentication identity, User ID (UID), and password credentials.</li>
+        <li>User profile details (display name, email address, role tags).</li>
+        <li>Active device session tokens and push notification registrations.</li>
+        <li>Pending invitations and manager branch assignments.</li>
+        <li>Local unsubmitted drafts on your physical device (purged upon sign-out or uninstall).</li>
+      </ul>
+
+      <h3>2. Business Financial Records Legally Retained:</h3>
+      <div class="info-box">
+        <strong>Statutory Retention Notice (UK GDPR Article 17(3)(b)):</strong><br>
+        Under Section 388 of the United Kingdom <strong>Companies Act 2006</strong> (s. 388(4)(a) 3-year mandatory retention for private companies; s. 388(4)(b) 6-year retention for public companies) and <strong>HM Revenue &amp; Customs (HMRC)</strong> tax regulations (6-year retention for VAT Act 1994 and Corporation Tax), business expense entries, sales records, and approval audit histories submitted on behalf of a registered company belong legally to that organization and cannot be erased.<br><br>
+        <strong>Automated Pseudonymization:</strong> Upon account deletion, your author attribution on all retained company business records is permanently and irreversibly pseudonymized to <code>"Former Member"</code>. Monetary amounts, timestamps, and approval decisions remain immutable for audit compliance.
+      </div>
+
+      <h2>In-App Deletion Alternative (For App Users)</h2>
+      <p>
+        If you currently have the FigDock Android application installed on your device, you can use the self-service flow:
+      </p>
+      <ol>
+        <li>Open the FigDock application on your Android device.</li>
+        <li>Navigate to <strong>More</strong> &rarr; <strong>Workspace &amp; Settings</strong> &rarr; <strong>Privacy &amp; Account Lifecycle</strong>.</li>
+        <li>Tap <strong>Request Account Deletion</strong> and confirm your request.</li>
+      </ol>
+
+      <h2>Need Further Assistance?</h2>
+      <p>
+        If you have questions regarding your data privacy rights, data retention schedules, or deletion status, please contact our customer service desk at <strong>[Pending User Confirmation of Public Support Email]</strong>.
+      </p>
+      <p>
+        You also have the right to lodge a complaint with the UK supervisory authority, the <strong>Information Commissioner's Office (ICO)</strong>, at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a> or by telephone at 0303 123 1113.
+      </p>
+    </div>
+
+    <footer>
+      <div>
+        <a href="/figdock-legal/">Home</a> &bull;
+        <a href="/figdock-legal/privacy/">Privacy Policy</a> &bull;
+        <a href="/figdock-legal/account-deletion/">Account Deletion</a>
+      </div>
+      <p style="margin-top: 12px; margin-bottom: 0;">
+        &copy; 2026 FigDock. All rights reserved. Hosted statically via GitHub Pages.
+      </p>
+    </footer>
+  </div>
+
+  <script>
+    function copyTemplate() {
+      const template = document.getElementById('email-template').innerText;
+      navigator.clipboard.writeText(template).then(() => {
+        const btn = document.getElementById('copy-btn');
+        btn.innerText = 'Template Copied!';
+        setTimeout(() => {
+          btn.innerText = 'Copy Email Template';
+        }, 3000);
+      }).catch(err => {
+        alert('Could not copy automatically. Please select and copy the text manually.');
+      });
+    }
+  </script>
+</body>
+</html>
