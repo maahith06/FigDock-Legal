@@ -82,6 +82,14 @@ When GitHub Pages is live and verified, update the following fields in the Googl
 
 ---
 
+## Public Contact Details
+
+- **Customer Support & Privacy Contact:** `maahithium@gmail.com`
+- **Application ID:** `app.figdock.financial`
+- **Operating Jurisdiction:** United Kingdom / England & Wales
+
+---
+
 ## License & Attribution
 
 Copyright &copy; 2026 FigDock. All rights reserved.
