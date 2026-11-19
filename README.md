@@ -27,7 +27,7 @@ This repository provides publicly accessible, zero-cost static web pages require
 ## Directory Structure
 
 ```text
-figdock-legal/
+FigDock-Legal/
 ├── .nojekyll                 # Disables Jekyll processing on GitHub Pages
 ├── 404.html                  # Branded 404 error page
 ├── README.md                 # Repository documentation & deployment instructions
@@ -42,20 +42,17 @@ figdock-legal/
 
 ## Deployment & Setup Guide (GitHub Pages)
 
-### 1. Repository Creation
-Create a new **public** repository named `figdock-legal` under your personal/FigDock GitHub account (do **not** create under `cheekycycle`):
+### 1. Repository Configuration
+This repository is published at `https://github.com/maahith06/FigDock-Legal`:
 
 ```bash
 cd ~/Developer/figdock-legal
-git init -b main
-git add .
-git commit -m "feat: initial static legal site for FigDock (app.figdock.financial)"
-git remote add origin https://github.com/<YOUR_FIGDOCK_GITHUB_USERNAME>/figdock-legal.git
+git remote add origin https://github.com/maahith06/FigDock-Legal.git
 git push -u origin main
 ```
 
 ### 2. Enable GitHub Pages
-1. Navigate to your repository settings: `https://github.com/<YOUR_FIGDOCK_GITHUB_USERNAME>/figdock-legal/settings/pages`.
+1. Navigate to your repository settings: `https://github.com/maahith06/FigDock-Legal/settings/pages`.
 2. Under **Build and deployment**:
    - **Source**: `Deploy from a branch`
    - **Branch**: `main`
@@ -64,10 +61,10 @@ git push -u origin main
 4. GitHub Pages will build and deploy the site within 1–2 minutes.
 
 ### 3. Public URLs
-Once deployed, the live endpoints will be accessible at:
-- **Portal Index**: `https://<YOUR_FIGDOCK_GITHUB_USERNAME>.github.io/figdock-legal/`
-- **Privacy Policy**: `https://<YOUR_FIGDOCK_GITHUB_USERNAME>.github.io/figdock-legal/privacy/`
-- **Account Deletion**: `https://<YOUR_FIGDOCK_GITHUB_USERNAME>.github.io/figdock-legal/account-deletion/`
+Once deployed, the live endpoints are accessible at:
+- **Portal Index**: `https://maahith06.github.io/FigDock-Legal/`
+- **Privacy Policy**: `https://maahith06.github.io/FigDock-Legal/privacy/`
+- **Account Deletion**: `https://maahith06.github.io/FigDock-Legal/account-deletion/`
 
 ---
 
@@ -76,9 +73,9 @@ Once deployed, the live endpoints will be accessible at:
 When GitHub Pages is live and verified, update the following fields in the Google Play Console (`app.figdock.financial`):
 
 1. **Policy and Programs > Privacy Policy**:
-   `https://<YOUR_FIGDOCK_GITHUB_USERNAME>.github.io/figdock-legal/privacy/`
+   `https://maahith06.github.io/FigDock-Legal/privacy/`
 2. **App Content > Data Safety > Account Deletion**:
-   `https://<YOUR_FIGDOCK_GITHUB_USERNAME>.github.io/figdock-legal/account-deletion/`
+   `https://maahith06.github.io/FigDock-Legal/account-deletion/`
 
 ---
 
