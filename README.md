@@ -82,11 +82,13 @@ When GitHub Pages is live and verified, update the following fields in the Googl
 
 ---
 
-## Public Contact Details
+## Legal Operator & Public Contact Details
 
+- **Legal Operator:** Individual sole trader trading as FigDock (Maahith Malhotra)
+- **Legal Structure:** UK Sole Trader (Unincorporated)
 - **Customer Support & Privacy Contact:** `maahithium@gmail.com`
 - **Application ID:** `app.figdock.financial`
-- **Operating Jurisdiction:** United Kingdom / England & Wales
+- **Operating Jurisdiction:** England & Wales, United Kingdom
 
 ---
 
